@@ -15,17 +15,15 @@ const Books = () => {
     synopsis: '',
     title: ''
   });
-  const { books, setBooks } = useContext(BookContext);
-  const { users, setUsers } = useContext(UserContext);
+  const {books, setBooks} = useContext(BookContext);
 
   const loadBooks = () => {
-    API.getUsers()
+    API.getBooks()
       .then(res => {
-        console.log('res.data', res.data)
         setBooks(res.data)
       }
       )
-      .catch(err => console.log("hi",err));
+      .catch(err => console.log(err));
   };
 
   useEffect(() => {
